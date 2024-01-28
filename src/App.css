@@ -14,6 +14,28 @@
  
 }
 
+.TopSection{ 
+  width: fit-content;
+}
+.cards{ 
+  width: fit-content; 
+  padding: 10px;  
+
+} 
+.Cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid columns */
+  grid-gap: 20px; /* Add some space between grid items */
+  justify-content: center; /* Horizontally center the grid */
+}
+
+@media screen and (max-width: 768px) {
+  .Cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust column width for smaller screens */
+  }
+}
+
+
 .defineGrid{ 
     grid-template-rows: 50%  repeat(2,25%);  
     padding: 20px;  

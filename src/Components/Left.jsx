@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import topArtist from "../assets/Sample/topArtist.jpeg";
 import coming from "../assets/comming.png"; // Fix the import statement
-import { TokenContext } from '../App';
+import { motion } from "framer-motion";
 import axios from 'axios';
 import Loader from './Loader';
+import { TokenContext } from '../Pages/Home';
+import { useNavigate } from 'react-router';
 
 export default function Left() {  
+  const navigate=useNavigate()
   const RefrestToken=useContext(TokenContext)    
   const [TopArtist,SetTopArtist]=useState(null)  
 
@@ -19,8 +22,15 @@ export default function Left() {
   
       if (response.status === 200) {
         console.log(response.data.obj.data[0]);
-        SetTopArtist(response.data.obj.data[0]);
-        return response.data.obj.data[0];
+      
+        const data=[]
+        for (let index = 0; index < 11; index++) {
+         data.push(response.data.obj.data[index])
+          
+        }
+        SetTopArtist(data);
+
+        return data;
       } else {
         console.error(`HTTP error! Status: ${response.status}`);
         return null;
@@ -47,7 +57,12 @@ export default function Left() {
   }, []);
   
 
+ const navigateToTop=()=>{  
+  if(TopArtist!==null) { 
+    navigate("/top", { state: { data:TopArtist,name:"Album"} })
+  }
 
+ }
 
 
 
@@ -58,23 +73,32 @@ export default function Left() {
 
   // {id: 3380945, name: 'ATL Jacob', image_url: 'https://i.scdn.co/image/ab67616100005174444eae7e928cddfd6cd254ee', isni: null, code2: 
 
-  return (
-    <div className=' h-[100%] grid defineGrid'>
-      <div className="TopCard relative rounded-[40px] overflow-hidden flex flex-col justify-end trans">  
+  return (  
+
+    <TopArtistContext.Provider value={TopArtist}>
+
+   
+    <div
+     
+    className=' h-[100%] grid defineGrid' onClick={navigateToTop}>
+      <div 
+     
+      transition={{ duration: 0.5 ,delay:1.4}}
+      className="TopCard relative rounded-[40px] overflow-hidden flex flex-col justify-end trans">  
       { TopArtist!== null ?( 
          <p className="z-10 text-white customFont text-[1.4rem] pl-3">Top Artist</p> 
         ):null
         } 
          
         { TopArtist!== null ?( 
-          <p className="z-10 text-white customFont text-[2rem] pl-3 pb-5">{TopArtist.name}</p>
+          <p className="z-10 text-white customFont text-[2rem] pl-3 pb-5">{TopArtist[0].name}</p>
         ):null
         } 
          
 
          { TopArtist!== null ?( 
           <img
-          src={TopArtist.image_url}
+          src={TopArtist[0].image_url}
           className="absolute inset-0 w-full h-full object-cover rounded-[40px] bg-img z-0"
           alt=""
         />
@@ -83,7 +107,11 @@ export default function Left() {
         
       </div>
 
-      <div className="middleTopCard flex items-center justify-center trans">
+      <div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1}}
+      transition={{ duration: 0.5 ,delay:1.4}}
+      className="middleTopCard flex items-center justify-center trans">
         <h1 className='text-white customFont text-[40px]'>RhythmicRealm</h1>
       </div>  
 
@@ -92,6 +120,9 @@ export default function Left() {
         <p className="z-10 text-white customFont text-[1.4rem] pl-3">Soon</p> 
         <img src={coming} className="absolute inset-0 w-[100%] h-full rounded-[40px] bg-img z-0" alt="" />
       </div>
-    </div>
+    </div>  
+    </TopArtistContext.Provider>
   );
-}
+}  
+
+export const TopArtistContext=React.createContext()
