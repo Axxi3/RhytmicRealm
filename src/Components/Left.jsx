@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import topArtist from "../assets/Sample/topArtist.jpeg";
 import coming from "../assets/comming.png"; // Fix the import statement
-import { motion } from "framer-motion";
 import axios from 'axios';
 import Loader from './Loader';
 import { TokenContext } from '../Pages/Home';

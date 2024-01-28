@@ -1,9 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import topArtist from "../assets/Sample/topArtist.jpeg";
+import React, { useEffect, useState } from "react";
 import star from "../assets/star.png";
 import Cards from "../Components/Cards";
-import { TokenContext } from "./Home";
-import { TopArtistContext } from "../Components/Left";
 import { useLocation } from "react-router";
 
 export default function TopStuff() {

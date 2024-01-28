@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import middlecard from "../assets/middlebg.png"
 import { TokenContext } from '../Pages/Home';
 import axios from 'axios' 
 import { useNavigate } from 'react-router';

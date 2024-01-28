@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import top from "../assets/Sample/topArtist.jpeg"
 export default function Cards(props) {
     useEffect(()=>{ 
         console.log("from Card")

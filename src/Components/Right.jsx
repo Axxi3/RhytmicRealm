@@ -1,5 +1,4 @@
 import sit from "../assets/sit.png"  
-import lastpic from "../assets/Sample/lastpic.png" 
 import React, { useContext, useEffect, useState } from 'react'
 import { TokenContext } from '../Pages/Home';
 import axios from 'axios'
