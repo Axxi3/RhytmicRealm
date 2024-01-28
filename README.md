@@ -45,4 +45,17 @@ Contributing
 Contributions are welcome! Please feel free to submit any bug fixes, feature enhancements, or suggestions via pull requests or by opening an issue.
 
 <h1>Some Screenshots of this site</h1>
+<h2>Home screen</h2>
+
+![Home Screen](1.png)
+
+<h2>Top Artist screen</h2>
+
+![Image Description](2.png) 
+
+<h2>Responsiveness</h2>
+
+![Image Description](3.png)
+
+
 
