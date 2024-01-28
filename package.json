@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "proxy": "https://api.chartmetric.com",
-  "homepage": "http://localhost:5173",
+  "homepage": "https://stately-liger-64590b.netlify.app",
   "type": "module",
   "scripts": {
     "dev": "vite",
