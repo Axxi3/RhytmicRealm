@@ -10,7 +10,7 @@ export default function Home() {
     
   const [ApiData, setApiData] = useState(null)
   const fetchData = async () => {
-    const url = 'https://api.chartmetric.com/api/token';
+    const url = '/api/token';
     const data = {
       refreshtoken: 'ZhsrWkzBKUZFxRZtb3sJw93XPeYsiZJ6UUKrtpeUs6eV6GqqoVg79I5KW8ArfI1G'
     };
